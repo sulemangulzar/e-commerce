@@ -16,23 +16,27 @@ closeBtn.addEventListener("click", () => {
   closeBtnIcn.classList.toggle(arrowRightClass);
 });
 
-let index = 0;
-
-document.querySelector(".prev").addEventListener("click", function () {
-  changeSlide(-1);
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 10,
+  // using "ratio" endpoints
+  breakpoints: {
+    "@0.75": {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    "@1.00": {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    "@1.50": {
+      slidesPerView: 4,
+      spaceBetween: 50,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });
-
-document.querySelector(".next").addEventListener("click", function () {
-  changeSlide(1);
-});
-function changeSlide(step) {
-  const slidesContainer = document.querySelector(".slides");
-  const slide = document.querySelector(".slide");
-  const slideWidth = slide.clientWidth;
-
-  const totalSlides = slidesContainer.children.length;
-
-  index = (index + step + totalSlides) % totalSlides;
-
-  slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
-}
