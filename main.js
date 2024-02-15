@@ -17,6 +17,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 const swiper = new Swiper(".swiper", {
+  loop: true,
   slidesPerView: 1,
   spaceBetween: 10,
   // using "ratio" endpoints
