@@ -20,7 +20,6 @@ const swiper = new Swiper(".swiper", {
   loop: true,
   slidesPerView: 1,
   spaceBetween: 10,
-  // using "ratio" endpoints
   breakpoints: {
     "@0.75": {
       slidesPerView: 2,
